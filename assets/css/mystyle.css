@@ -1,0 +1,87 @@
+
+body{
+    background-color: rgb(76, 186, 223);
+}
+.header{
+    background-image: linear-gradient(to bottom left, rgb(24, 2, 122), rgb(0, 0, 0));
+    color: white;
+    text-align: center;
+    font-size: 10vmin;
+    margin-bottom: auto;
+    padding: 2%;
+    font-family: 'Shrikhand', cursive;
+    border-radius: 10px 10px 0px 0px;
+}
+.navbar-brand{
+    font-weight: bold;
+    
+}
+.navbar{
+    font-family: 'Shrikhand', cursive;
+    font-size: x-large;
+    
+
+}
+.jumbotron{
+    font-family: 'Shrikhand', cursive;
+    margin-bottom: 3rem;
+    color: rgb(3, 4, 83);
+
+}
+.my-2 ,.my-sm-0{
+margin: 2px;
+}
+.btn{
+    background-color: rgb(10, 10, 143);
+    color: white;
+}
+.row{
+    margin-left: 10%;
+    margin-bottom: 20px;
+    font-family: 'Shrikhand', cursive;
+}
+.card{
+    margin-left: 3%;
+    text-align: center;
+    
+}
+
+.footer{
+    margin: auto;
+    background-image: linear-gradient(to bottom left, rgb(24, 2, 122), rgb(0, 0, 0));
+    color: white;
+    
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(4, 23, 134, 0.85)!important;
+}
+.card-title{
+    color:rgb(10, 10, 143);
+    font-weight: bold;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+    margin-top: 5%; 
+    margin-bottom: 5%;
+}
+li{
+    display: inline;
+}
+p{
+    padding-top:2rem;
+}
+.col-10{
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(1, 14, 88, 0.85)!important;
+    color: rgb(3, 4, 83);
+    
+}
+.titil{
+    font-size: 25px;
+    font-size: 4vmin;
+}
+
+
+    
