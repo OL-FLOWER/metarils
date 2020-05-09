@@ -1,0 +1,106 @@
+
+  <?php include($app->getComponentPath("header")); ?>
+
+
+
+
+
+
+
+  <section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10">
+          <div class="col" style="text-align: center; padding-top: 15px;">
+            <label class="titil">Login </label>
+            <hr>
+          </div>
+          <?= isset($_GET['code']) && $_GET['code'] == 401 ?'<div class="alert alert-danger" role="alert">Wrong Username Or Password</div>':""?>
+          <form method="post">
+            <div class="form-row">
+              <hr>
+
+              <div class="col-12">
+                <label for="validationServer07">User Name</label>
+                <input type="text" class="form-control" id="validationServer07" name="username" value="<?= isset($_GET["username"])?$_GET["username"]:'' ?>" required>
+
+              </div>
+              <div class="col-12">
+                <label>PassWord</label>
+                <input type="password" class="form-control" name="password" required>
+
+              </div>
+              <hr>
+
+              <div class="col" style="text-align: center; padding-top: 15px;">
+                <button type="submit" style="width: 100%;" class="btn btn-danger">LOGIN</button>
+              </div>
+            </div>
+            <hr>
+
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="row">
+      <div class="col">
+        <p>Some quick example text to build on the card title and make up the bulk of the card's content.
+          Some quick example text to build on the card title and make up the bulk of the card's content.
+          Some quick example text to build on the card title and make up the bulk of the card's content.
+          Some quick example text to build on the card title and make up the bulk of the card's content.
+        </p>
+
+        <ul>
+          <a href="#">
+            <li><img class="icon" src="assets/img/facebook.png"></li>
+          </a>
+          <a href="#">
+            <li><img class="icon" src="assets/img/instagram.png"></li>
+          </a>
+          <a href="#">
+            <li><img class="icon" src="assets/img/wat.png"></li>
+          </a>
+          <a href="#">
+            <li><img class="icon" src="assets/img/twe.png"></li>
+          </a>
+          <a href="#">
+            <li><img class="icon" src="assets/img/p.png"></li>
+          </a>
+
+        </ul>
+      </div>
+
+      <div class="col">
+        <div class="s-footer__copyright" style="margin-top: 30%; margin-bottom: 5%;">
+          <span>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>
+              document.write(new Date().getFullYear());
+            </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">OLa</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <?php include($app->getComponentPath("footer")); ?>
+
+
+</body>
+
+</html>

@@ -10,7 +10,22 @@ body{
     margin-bottom: auto;
     padding: 2%;
     font-family: 'Shrikhand', cursive;
-    border-radius: 10px 10px 0px 0px;
+   position: relative;
+}
+
+.logout{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.logout a{
+    color: white;
+    text-decoration: none;
+}
+.logout a:hover{
+    color: white;
+    text-decoration: none;
 }
 .navbar-brand{
     font-weight: bold;

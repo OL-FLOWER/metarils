@@ -1,0 +1,105 @@
+
+    <?php include($app->getComponentPath("header")); ?>
+
+
+    <section style="min-height: 70vh">
+        <div class="container">
+           <div class="card">
+           <div class="card-body">
+               <div class="card-title">Registered Students</div>
+               <div class="container">
+               <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Bearth Day</th>
+                        <th>Stage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                        foreach($rows as $k=>$v){
+                            echo "<tr>";
+                             echo "<td>". intval($k +1 )  ."</td>";
+                             echo "<td>". $v['fname']  ."</td>";
+                             echo "<td>". $v['mname']  ."</td>";
+                             echo "<td>".$v['lname']  ."</td>";
+                             echo "<td>".$v['dob']  ."</td>";
+                             echo "<td>".$v['stage']  ."</td>";
+
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+               </div>
+           </div>
+           </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col">
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+
+                <ul>
+                    <a href="#">
+                        <li><img class="icon" src="./assets/img/facebook.png"></li>
+                    </a>
+                    <a href="#">
+                        <li><img class="icon" src="./assets/img/instagram.png"></li>
+                    </a>
+                    <a href="#">
+                        <li><img class="icon" src="./assets/img/wat.png"></li>
+                    </a>
+                    <a href="#">
+                        <li><img class="icon" src="./assets/img/twe.png"></li>
+                    </a>
+                    <a href="#">
+                        <li><img class="icon" src="./assets/img/p.png"></li>
+                    </a>
+
+                </ul>
+            </div>
+
+            <div class="col">
+                <div class="s-footer__copyright" style="margin-top: 30%; margin-bottom: 5%;">
+                    <span>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">OLa</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <?php include($app->getComponentPath("footer")); ?>
+</body>
+
+</html>
