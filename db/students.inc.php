@@ -5,7 +5,7 @@ require_once(getcwd() . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . "conn
 
 class Studens extends DB
 {
-    private $table = "students";
+    protected $table = "students";
   
     function addStudent($data){
         $connection = $this->connection();
