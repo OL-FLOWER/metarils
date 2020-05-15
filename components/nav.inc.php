@@ -24,6 +24,7 @@
 
       </li>
       <?= isLogin() && hasRol("admin")?'<li class="nav-item"><a class="nav-link" href="?page=students">Student</a></li>':''?>
+      <?= isLogin() && hasRol("admin")?'<li class="nav-item"><a class="nav-link" href="?page=teachers">Teachers</a></li>':''?>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>

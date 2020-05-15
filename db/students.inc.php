@@ -16,12 +16,8 @@ class Studens extends DB
     }
 
 
-    function getStudents($data){
-        $connection = $this->connection();
-        
-        $query = mysqli_query($connection, "select * from {$this->table}");       
-
-        return  mysqli_fetch_all($query, MYSQLI_ASSOC);
+    function getStudents(){
+        return $this->fetch();
     }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-require(getcwd() . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . "students.inc.php");
+require(getcwd() . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . "teachers.inc.php");
 
 
 if(!isLogin() || !hasRol("admin")){
@@ -15,9 +15,9 @@ function post($data)
 }
 global $rows;
 function get($data){
-    $students = new Studens;
-
-    $GLOBALS['rows'] = $students->getStudents();
+    $teachers = new Teachers;
+    
+    $GLOBALS['rows'] = $teachers->getTeachers();
 
 }
 switch ($method) {

@@ -1,0 +1,86 @@
+<?php include($app->getComponentPath("header")); ?>
+
+
+
+<section>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-10">
+				<div class="col" style="text-align: center; padding-top: 15px;">
+					<label class="titil">Add Teacher Form </label>
+					<hr style="color: crimson;  width: 100%;">
+				</div>
+				<div class="col-12">
+					<div class="container">
+						<form method="post">
+							<?= isset($_GET['success']) ? '<div class="alert alert-success" role="alert">Thank you for Sign Up !</div>' : "" ?>
+							<div class="form-row">
+								<div class="col-md-4">
+									<label for="validationServer01">Name</label>
+									<input type="text" class="form-control " id="validationServer01" name="name" required>
+									<div class="valid-feedback">
+										Looks good!
+									</div>
+								</div>
+								<div class="col-md-4">
+									<label for="validationServer02">Contact</label>
+									<input type="text" class="form-control " id="validationServer02" name="contact" required>
+
+								</div>
+								<div class="col-md-4">
+									<label for="validationServer03">Subject</label>
+									<select name="subject_id" class="custom-select" required>
+                                        <option value="" disabled selected>choose subject</option>
+                                        <?php
+                                            foreach($subjects as $subject){
+                                                echo "<option value='".$subject['id']."' >${subject['subject']}</option>";
+                                            }
+                                        ?>
+										
+									</select>
+
+								</div>
+
+								<hr style="color: crimson;  width: 100%;">
+
+								
+
+								<div class="col-6">
+									<label for="validationServer07">Email</label>
+									<input type="email" class="form-control " id="validationServer07" name="email" required>
+
+								</div>
+								<div class="col-6">
+									<label for="validationServer08">Password</label>
+									<input type="password" class="form-control " id="validationServer08" name="password" required>
+
+								</div>
+								<hr style="color: crimson;  width: 100%;">
+
+								<div class="col" style="text-align: center; padding-top: 15px;">
+									<button type="submit" style="width: 100%;" class="btn">Submit</button>
+								</div>
+							</div>
+							<hr style="color: crimson;  width: 100%;">
+
+
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+
+</section>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<?php include($app->getComponentPath("footer")); ?>
+</body>
+
+</html>
