@@ -39,11 +39,15 @@
 
 									<div class="col-6">
 										<label for="validationServer05">Stage</label>
-										<select name="stage" class="custom-select" required>
+										<select name="stage_id" class="custom-select" required>
 											<option value="" disabled selected>choose stage</option>
-											<option value="first">first</option>
-											<option value="second">second</option>
-											<option value="third">third</option>
+											<?php
+														foreach($stages as $stage){
+															echo '<option value="'.$stage['id'].'">'.$stage['name'].'</option>';
+														}
+											?>
+											
+										
 										</select>
 
 									</div>

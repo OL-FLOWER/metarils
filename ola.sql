@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2020 at 09:09 PM
+-- Generation Time: May 21, 2020 at 02:36 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,6 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `stages`
+--
+
+CREATE TABLE `stages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `stages`
+--
+
+INSERT INTO `stages` (`id`, `name`) VALUES
+(1, 'first'),
+(2, 'second');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -34,7 +53,7 @@ CREATE TABLE `students` (
   `mname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `dob` date NOT NULL,
-  `stage` varchar(20) NOT NULL,
+  `stage_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46,16 +65,9 @@ CREATE TABLE `students` (
 
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
-  `subject` varchar(255) NOT NULL
+  `subject` varchar(255) NOT NULL,
+  `stage_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `subjects`
---
-
-INSERT INTO `subjects` (`id`, `subject`) VALUES
-(1, 'data'),
-(2, 'network');
 
 -- --------------------------------------------------------
 
@@ -70,15 +82,6 @@ CREATE TABLE `teachers` (
   `subject_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `teachers`
---
-
-INSERT INTO `teachers` (`id`, `name`, `contact`, `subject_id`, `user_id`) VALUES
-(1, 'ahmed', '0789654', 1, 7),
-(2, 'qowdpo', '123456', 1, 11),
-(3, 'qowdpo', '123456', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -104,24 +107,36 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `role`) VALUES
 (9, 'pitbullali777@gmail.com', '123456', '', 'teacher'),
 (10, 'pitbullali777@gmail.com', '123456', '', 'teacher'),
 (11, 'pitbullali777@gmail.com', '123456', '', 'teacher'),
-(12, 'pitbullali777@gmail.com', '123456', '', 'teacher');
+(12, 'pitbullali777@gmail.com', '123456', '', 'teacher'),
+(13, 'aliahabeb007@gmail.com', '123456', '', 'student'),
+(14, 'aliahabeb007@gmail.com', 'ali', '', 'student'),
+(15, 'aliahabeb007@gmail.com', 'ali', '', 'student'),
+(16, 'pitbullali777@gmail.com', '123456', '', 'teacher');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `stages`
+--
+ALTER TABLE `stages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `student_user_fk` (`user_id`);
+  ADD KEY `student_user_fk` (`user_id`),
+  ADD KEY `student_stage_fk` (`stage_id`);
 
 --
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subject_stage_fk` (`stage_id`);
 
 --
 -- Indexes for table `teachers`
@@ -142,28 +157,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `stages`
+--
+ALTER TABLE `stages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -173,7 +194,14 @@ ALTER TABLE `users`
 -- Constraints for table `students`
 --
 ALTER TABLE `students`
+  ADD CONSTRAINT `student_stage_fk` FOREIGN KEY (`stage_id`) REFERENCES `stages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD CONSTRAINT `subject_stage_fk` FOREIGN KEY (`stage_id`) REFERENCES `stages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `teachers`

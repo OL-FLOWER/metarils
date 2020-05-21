@@ -1,0 +1,52 @@
+<?php include($app->getComponentPath("header")); ?>
+
+
+
+<section>
+
+    <div class="container">
+    <div class="card">
+            <div class="card-body">
+                <div class="card-title">Materials</div>
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Subject</th>
+                                <th>Stage</th>
+                                <th>Teacher</th>
+                                <th>
+                                    <a href="?page=add_subject">Add Subject</a>
+                                </th>
+                              
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                                foreach($rows as $k=>$v){
+                                    echo "<tr>";
+                                    echo "<td>" . intval($k + 1)  . "</td>";
+                                    echo "<td>" . $v['subject']  . "</td>";
+                                    echo "<td>" . $v['stage']  . "</td>";
+                                    echo "<td>" . $v['teacher']  . "</td>";
+                                    echo "<td></td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<?php include($app->getComponentPath("footer")); ?>
+</body>
+
+</html>
